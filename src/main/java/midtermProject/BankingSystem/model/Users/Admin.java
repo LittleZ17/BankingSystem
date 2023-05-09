@@ -6,11 +6,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
+@PrimaryKeyJoinColumn(name="id")
 @Data
-@PrimaryKeyJoinColumn(name = "id")
 @NoArgsConstructor
-public class Admins extends User{
-    public Admins(String username, String password, String name) {
+public class Admin extends User{
+    public Admin(String username, String password, String name) {
         super(username, password, name);
     }
 }

@@ -9,9 +9,9 @@ import lombok.NoArgsConstructor;
 
 
 @Entity
+@PrimaryKeyJoinColumn(name="id")
 @Data
 @NoArgsConstructor
-@PrimaryKeyJoinColumn(name = "id")
 public class ThirdParty extends User{
 
     @Column(unique = true, nullable = false)

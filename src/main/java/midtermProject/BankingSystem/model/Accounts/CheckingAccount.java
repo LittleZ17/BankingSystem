@@ -4,17 +4,16 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import midtermProject.BankingSystem.embeddables.Money;
-import midtermProject.BankingSystem.enums.Status;
+
 import midtermProject.BankingSystem.model.Users.AccountHolders;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
+@PrimaryKeyJoinColumn(name = "number")
 @Data
 @NoArgsConstructor
-@PrimaryKeyJoinColumn(name = "number")
 public class CheckingAccount extends Account{
     @Embedded
     @AttributeOverrides({
@@ -30,8 +29,8 @@ public class CheckingAccount extends Account{
     private final Money monthlyMaintenanceFee = new Money(BigDecimal.valueOf(12));
     private LocalDate lastFeeDate;
 
-      public CheckingAccount(Money balance, String secretKey, AccountHolders primaryOwner, Status status, Money minimumBalance, Money monthlyMaintenanceFee, Date lastFeeDate) {
-        super(balance, secretKey, primaryOwner, status);
+    public CheckingAccount(Money balance, String secretKey, AccountHolders primaryOwner) {
+        super(balance, secretKey, primaryOwner);
         this.lastFeeDate = LocalDate.now();
     }
 }

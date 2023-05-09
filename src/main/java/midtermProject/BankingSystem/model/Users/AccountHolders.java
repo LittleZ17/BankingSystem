@@ -11,6 +11,7 @@ import midtermProject.BankingSystem.model.Accounts.Account;
 import java.time.LocalDate;
 import java.util.List;
 @Entity
+@PrimaryKeyJoinColumn(name="id")
 @Data
 @NoArgsConstructor
 public class AccountHolders extends User{

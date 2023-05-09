@@ -1,6 +1,9 @@
 package midtermProject.BankingSystem.model.Accounts;
 
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import midtermProject.BankingSystem.embeddables.Money;
@@ -11,14 +14,15 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 @Data
 @NoArgsConstructor
-@Inheritance(strategy = InheritanceType.JOINED)
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer number;
     @Embedded
+   // @Min(value = 250, message = "Balance must be at least 250")
     private Money balance;
     private String secretKey;
     @ManyToOne
@@ -34,8 +38,7 @@ public class Account {
     @Enumerated(EnumType.STRING)
     private Status status;
 
-
-        public Account(Money balance, String secretKey, AccountHolders primaryOwner, Status status) {
+    public Account(Money balance, String secretKey, AccountHolders primaryOwner) {
         this.balance = balance;
         this.secretKey = secretKey;
         this.primaryOwner = primaryOwner;
