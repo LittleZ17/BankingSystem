@@ -21,8 +21,11 @@ public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer number;
+    @AttributeOverrides({
+            @AttributeOverride(name = "amount", column = @Column(name = "balance_amount")),
+            @AttributeOverride(name = "currency", column = @Column(name = "balance_currency"))
+    })
     @Embedded
-   // @Min(value = 250, message = "Balance must be at least 250")
     private Money balance;
     private String secretKey;
     @ManyToOne

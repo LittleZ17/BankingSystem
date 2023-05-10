@@ -1,6 +1,7 @@
 package midtermProject.BankingSystem.controller.impl;
 
 import jakarta.validation.Valid;
+import midtermProject.BankingSystem.Service.AccountsService.AccountService;
 import midtermProject.BankingSystem.controller.dto.CheckingAccountDTO;
 import midtermProject.BankingSystem.embeddables.Money;
 import midtermProject.BankingSystem.model.Accounts.*;
@@ -30,9 +31,9 @@ public class AccountController {
     SavingRepository savingRepository;
     @Autowired
     CreditCardRepository creditCardRepository;
-
+    /*-----*/
     @Autowired
-    AccountHoldersRepository accountHoldersRepository;
+    AccountService accountService;
 
     /* *********** GET *********** */
     @GetMapping("/accounts")
@@ -76,7 +77,7 @@ public class AccountController {
     @PostMapping("/accounts/checking-accounts")
     @ResponseStatus(HttpStatus.CREATED)
     public Account saveCheckingAccount(@RequestBody CheckingAccount checkingAccount){
-        return checkingAccountRepository.save(checkingAccount);
+        return accountService.saveCheckingAccount(checkingAccount);
     }
 
 
