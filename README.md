@@ -47,8 +47,9 @@ Third-Party users can send and receive money to/from other accounts by providing
 Account Management: The application supports penalty fees for accounts that drop below the minimum balance. Interest rates are applied to savings accounts annually and credit card balances monthly.
 
 ##  CaseDiagram & ClassDiagram
-
-
+![CaseD.png](assets%2FCaseD.png)
+------------------------------------------------------------------------
+![ClassD.png](assets%2FClassD.png)
 ## :woman_technologist: Technologies Used
 The application is built using the following technologies:
 
@@ -64,9 +65,11 @@ Java with Spring framework
 
 ## :card_file_box: Database
 A MySQL database is used to store the application data. The necessary database schema and sample data are provided.
+Please refer to the provided files in the "assets" folder for the database schema and sample data.
 
 ## :orange_circle: Postman Collection
 A Postman collection is provided that includes the API routes and sample requests for testing the application.
+Please refer to the provided files in the "assets" folder for collection Postman.
 
 ## :pushpin: Getting Started
 To run the application, follow these steps:
