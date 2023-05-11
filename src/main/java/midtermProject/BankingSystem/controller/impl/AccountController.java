@@ -115,28 +115,21 @@ public class AccountController {
         return studentCheckingRepository.save(studentChecking);
     }
 
- /*   @PostMapping("/accounts/savings")
+    @PostMapping("/accounts/savings")
     @ResponseStatus(HttpStatus.CREATED)
     public Savings saveSavings(@RequestBody Savings savings){
 
         String secretKey = savings.getSecretKey();
-
         AccountHolders primaryOwner = accountHolderRepository.findById(savings.getPrimaryOwner().getId())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
 
         Money balance;
+        BigDecimal balanceCredit = (savings.getBalance().getAmount() != null) ? savings.getBalance().getAmount() : new BigDecimal("1000");
 
-            BigDecimal minimumBalance = (savings.getMinimumBalance() != null) ? savings.getMinimumBalance().getAmount() : new BigDecimal("1000");
-            if (minimumBalance.compareTo(new BigDecimal("100")) < 0 || minimumBalance.compareTo(new BigDecimal("1000")) > 0) {
-                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The minimum balance must be between 100 and 1000.");
-            }
-            balance = new Money(minimumBalance);
+        if (balanceCredit.compareTo(new BigDecimal("100")) < 0 || balanceCredit.compareTo(new BigDecimal("1000")) > 0) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The balance must be between 100 and 1000.");
         } else {
-            BigDecimal amount = savings.getBalance().getAmount();
-            if (amount.compareTo(new BigDecimal("100")) < 0 || amount.compareTo(new BigDecimal("1000")) > 0) {
-                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The balance must be between 100 and 1000.");
-            }
-            balance = new Money(amount);
+            balance = new Money(balanceCredit);
         }
 
         BigDecimal interestRate = (savings.getInterestRate() != null) ? savings.getInterestRate() : new BigDecimal("0.0025");
@@ -146,7 +139,8 @@ public class AccountController {
         Savings savingAccount = new Savings(balance, secretKey, primaryOwner, interestRate);
 
         return savingRepository.save(savingAccount);
-    }*/
+    }
+
     @PostMapping("/accounts/credit-cards")
     @ResponseStatus(HttpStatus.CREATED)
     public CreditCard saveCreditCard(@RequestBody CreditCard creditCard){
