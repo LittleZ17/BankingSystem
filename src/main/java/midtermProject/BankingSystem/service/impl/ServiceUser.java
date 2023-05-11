@@ -3,6 +3,7 @@ package midtermProject.BankingSystem.service.impl;
 
 import midtermProject.BankingSystem.model.Users.User;
 import midtermProject.BankingSystem.repository.UsersRepository.UserRepository;
+import midtermProject.BankingSystem.service.interfaces.IServiceUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -11,7 +12,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.Optional;
 
 @Service
-public class ServiceUser {
+public class ServiceUser implements IServiceUser {
     @Autowired
     UserRepository userRepository;
 

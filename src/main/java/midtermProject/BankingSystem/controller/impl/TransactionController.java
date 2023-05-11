@@ -1,10 +1,8 @@
 package midtermProject.BankingSystem.controller.impl;
 
 import midtermProject.BankingSystem.controller.interfaces.ITransactionController;
-import midtermProject.BankingSystem.model.Accounts.Account;
 import midtermProject.BankingSystem.model.Operations.Transaction;
 import midtermProject.BankingSystem.repository.OperationRepository.TransactionRepository;
-import midtermProject.BankingSystem.service.impl.ServiceAccount;
 import midtermProject.BankingSystem.service.impl.ServiceTransaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

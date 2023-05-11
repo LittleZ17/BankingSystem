@@ -1,7 +1,5 @@
 package midtermProject.BankingSystem.controller.dto;
 
-import midtermProject.BankingSystem.embeddables.Money;
-
 import java.math.BigDecimal;
 import java.util.Currency;
 

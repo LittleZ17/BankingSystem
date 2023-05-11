@@ -12,9 +12,6 @@ import midtermProject.BankingSystem.model.Users.AccountHolders;
 @Data
 @NoArgsConstructor
 public class StudentChecking extends Account{
-   /* public StudentChecking(Money balance, String secretKey, AccountHolders primaryOwner, Status status) {
-        super(balance, secretKey, primaryOwner, status);
-    }*/
 
     public StudentChecking(Money balance, String secretKey, AccountHolders primaryOwner) {
         super(balance, secretKey, primaryOwner);

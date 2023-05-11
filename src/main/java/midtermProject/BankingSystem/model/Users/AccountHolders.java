@@ -16,7 +16,6 @@ import java.util.List;
 @NoArgsConstructor
 public class AccountHolders extends User{
 
-    //@DateTimeFormat(pattern = "dd/MM/yyy")
     private LocalDate dateOfBirth;
     @Embedded
     private Address primaryAddress;

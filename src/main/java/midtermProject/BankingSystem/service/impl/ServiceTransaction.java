@@ -7,11 +7,12 @@ import midtermProject.BankingSystem.model.Accounts.Savings;
 import midtermProject.BankingSystem.model.Operations.Transaction;
 import midtermProject.BankingSystem.model.Users.ThirdParty;
 import midtermProject.BankingSystem.repository.OperationRepository.TransactionRepository;
+import midtermProject.BankingSystem.service.interfaces.IServiceTransaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ServiceTransaction {
+public class ServiceTransaction implements IServiceTransaction {
     @Autowired
     private AccountController accountController;
     @Autowired
@@ -38,7 +39,4 @@ public class ServiceTransaction {
         }
         return transaction;
     }
-
-
-
 }

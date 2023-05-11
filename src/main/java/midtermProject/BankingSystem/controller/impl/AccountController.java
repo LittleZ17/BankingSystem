@@ -7,7 +7,6 @@ import midtermProject.BankingSystem.controller.interfaces.IAccountController;
 import midtermProject.BankingSystem.embeddables.Money;
 import midtermProject.BankingSystem.model.Accounts.*;
 import midtermProject.BankingSystem.repository.AccountsRepository.*;
-import midtermProject.BankingSystem.repository.UsersRepository.AccountHoldersRepository;
 import midtermProject.BankingSystem.service.impl.ServiceAccount;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

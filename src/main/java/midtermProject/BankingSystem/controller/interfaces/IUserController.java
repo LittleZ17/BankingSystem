@@ -4,8 +4,7 @@ import midtermProject.BankingSystem.model.Users.AccountHolders;
 import midtermProject.BankingSystem.model.Users.Admin;
 import midtermProject.BankingSystem.model.Users.ThirdParty;
 import midtermProject.BankingSystem.model.Users.User;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
+
 
 import java.util.List;
 

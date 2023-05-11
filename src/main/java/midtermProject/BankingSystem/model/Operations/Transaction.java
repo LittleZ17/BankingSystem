@@ -5,11 +5,9 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import midtermProject.BankingSystem.embeddables.Money;
-import midtermProject.BankingSystem.model.Accounts.Account;
-import midtermProject.BankingSystem.model.Users.ThirdParty;
+
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Entity
 @Data
@@ -41,12 +39,4 @@ public class Transaction {
         this.amount = amount;
         this.transactionDate = LocalDate.now();
     }
-
-    /*public Transaction(Integer sourceAccountNumber, Integer destinationAccountNumber, Money amount, String hashedKey) {
-        this.sourceAccountNumber = sourceAccountNumber;
-        this.destinationAccountNumber = destinationAccountNumber;
-        this.amount = amount;
-        this.transactionDate = LocalDate.now();
-        this.hashedKey = hashedKey;
-    }*/
 }
