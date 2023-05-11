@@ -22,7 +22,14 @@ public class Savings extends Account{
     private BigDecimal interestRate = BigDecimal.valueOf(0.0025);
     private LocalDate lastInterestDate = LocalDate.now();
 
-
+    public boolean isBalanceBelowMinimum() {
+        return getBalance().getAmount().compareTo(getMinimumBalance().getAmount()) < 0;
+    }
+    public void deductPenaltyFee() {
+        if (isBalanceBelowMinimum()) {
+            getBalance().getAmount().subtract(getPenaltyFee().getAmount());
+        }
+    }
     public Savings(Money balance, String secretKey, AccountHolders primaryOwner, BigDecimal interestRate) {
         super(balance, secretKey, primaryOwner);
         this.interestRate = interestRate;

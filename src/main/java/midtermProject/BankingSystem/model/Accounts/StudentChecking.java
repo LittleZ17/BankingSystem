@@ -5,7 +5,6 @@ import jakarta.persistence.PrimaryKeyJoinColumn;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import midtermProject.BankingSystem.embeddables.Money;
-import midtermProject.BankingSystem.enums.Status;
 import midtermProject.BankingSystem.model.Users.AccountHolders;
 
 @Entity

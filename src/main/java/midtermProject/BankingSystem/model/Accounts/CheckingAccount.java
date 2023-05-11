@@ -33,6 +33,15 @@ public class CheckingAccount extends Account{
     private final Money monthlyMaintenanceFee = new Money(BigDecimal.valueOf(12));
     private LocalDate lastFeeDate;
 
+    public boolean isBalanceBelowMinimum() {
+        return getBalance().getAmount().compareTo(getMinimumBalance().getAmount()) < 0;
+    }
+    public void deductPenaltyFee() {
+        if (isBalanceBelowMinimum()) {
+            getBalance().getAmount().subtract(getPenaltyFee().getAmount());
+        }
+    }
+
     public CheckingAccount(Money balance, String secretKey, AccountHolders primaryOwner) {
         super(balance, secretKey, primaryOwner);
         this.lastFeeDate = LocalDate.now();
