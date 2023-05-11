@@ -22,16 +22,10 @@ public class Savings extends Account{
     private BigDecimal interestRate = BigDecimal.valueOf(0.0025);
     private LocalDate lastInterestDate = LocalDate.now();
 
-    /*public Savings(Money balance, String secretKey, AccountHolders primaryOwner, Status status, Money minimumBalance, BigDecimal interestRate) {
-        super(balance, secretKey, primaryOwner, status);
-        this.minimumBalance = minimumBalance;
-        this.interestRate = interestRate;
-    }*/
 
-    public Savings(Money balance, String secretKey, AccountHolders primaryOwner, Money minimumBalance, BigDecimal interestRate, LocalDate lastInterestDate) {
+    public Savings(Money balance, String secretKey, AccountHolders primaryOwner, BigDecimal interestRate) {
         super(balance, secretKey, primaryOwner);
-        this.minimumBalance = minimumBalance;
         this.interestRate = interestRate;
-        this.lastInterestDate = lastInterestDate;
+        this.lastInterestDate = LocalDate.now();
     }
 }

@@ -66,7 +66,6 @@ public class UserController {
     @PostMapping("/users/admin")
     @ResponseStatus(HttpStatus.CREATED)
     public Admin addAdmin(@RequestBody Admin admin) {
-
         return userRepository.save(admin);
     }
 
@@ -82,5 +81,4 @@ public class UserController {
         return thirdPartyRepository.save(thirdParty);
     }
 
-    /* *********** ---- *********** */
 }

@@ -1,9 +1,7 @@
 package midtermProject.BankingSystem.model.Accounts;
 
 import jakarta.persistence.*;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.Size;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import midtermProject.BankingSystem.embeddables.Money;
@@ -17,10 +15,17 @@ import java.time.LocalDate;
 @Inheritance(strategy = InheritanceType.JOINED)
 @Data
 @NoArgsConstructor
-public class Account {
+public abstract class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer number;
+
+    /*
+    id - numero - money Balance - money PenaltyFee
+    int - int - (bigDecimal, String) - (bigDecimal, String)
+    id - numero - balance - currency - balance - currency
+    id- numero - balance_amount - balance_currency - balance - currency
+     */
     @AttributeOverrides({
             @AttributeOverride(name = "amount", column = @Column(name = "balance_amount")),
             @AttributeOverride(name = "currency", column = @Column(name = "balance_currency"))

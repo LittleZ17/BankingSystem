@@ -20,12 +20,14 @@ public class CreditCard extends Account{
     @Embedded
     private Money creditLimit;
 
-    private final BigDecimal interestRate = BigDecimal.valueOf(0.0025);
+    private BigDecimal interestRate;
     private LocalDate lastInterestDate = LocalDate.now();
 
-    public CreditCard(Money balance, String secretKey, AccountHolders primaryOwner, Money creditLimit, LocalDate lastInterestDate) {
+    public CreditCard(Money balance, String secretKey, AccountHolders primaryOwner,Money creditLimit, BigDecimal interestRate) {
         super(balance, secretKey, primaryOwner);
         this.creditLimit = creditLimit;
-        this.lastInterestDate = lastInterestDate;
+        this.interestRate = interestRate;
+        this.lastInterestDate = LocalDate.now();
     }
+
 }
